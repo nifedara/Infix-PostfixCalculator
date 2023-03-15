@@ -23,4 +23,5 @@
     <string name="clear">C</string>
     <string name="result_screen">0</string>
     <string name="space">SPACE</string>
+    <string name="infix_or_postfix">Infix</string>
 </resources>

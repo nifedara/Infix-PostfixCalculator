@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.Button
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.Stack
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,18 +122,25 @@ class MainActivity : AppCompatActivity() {
                     digit = "" }
                 else if (!notOperator(character))
                 {
-                    val val1 = stack.pop()
-                    val val2 = stack.pop()
+                    try{
+                        val val1 = stack.pop()
+                        val val2 = stack.pop()
 
-                    when (character) {
-                        '+' -> stack.push(val2 + val1)
-                        '-' -> stack.push(val2 - val1)
-                        '/' -> stack.push(val2 / val1)
-                        'x' -> stack.push(val2 * val1) } }
+                        when (character) {
+                            '+' -> stack.push(val2 + val1)
+                            '-' -> stack.push(val2 - val1)
+                            '/' -> stack.push(val2 / val1)
+                            'x' -> stack.push(val2 * val1) }
+                    }catch(e: EmptyStackException){
+                        return (0).toDouble()
+                    }}
             }
-            return stack.pop()
+            return try{
+                stack.pop()
+            } catch(e: EmptyStackException){
+                (0).toDouble()
+            }
         }
-
         val result = evaluateExpression(input_screen.text.toString())
         return result.toString()
     }
