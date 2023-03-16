@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RPN Calculator</string>
+    <string name="app_name">Calculator</string>
     <string name="memory_clear">MC</string>
     <string name="memory_plus">M+</string>
     <string name="memory_recall">MR</string>
